@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% if title %}
+            {{ title }} - Renmerry test
+            {% else %}
+            Renmerry test
+            {% endif %}
+        </title>
+        <meta charset="UTF-8">
+        <meta>
+        <link>
+    </head>
+    <body>
+    <header></header>
+    <main>
+        {% for item in items %}
+        <h2>{{  item.title }}</h2>
+        <p>{{ item.name }}</p>
+        {% endfor %}
+    </main>
+    </body>
+</html>
