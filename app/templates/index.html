@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{% if title %}
-            {{ title }} - Renmerry test
-            {% else %}
-            Renmerry test
-            {% endif %}
-        </title>
+        <title>{{ title }}</title>
         <meta charset="UTF-8">
         <meta>
         <link>
     </head>
     <body>
-    <header></header>
+    <header>
+        <a href="/">Main page</a>
+        <a href="/login/sign_in">login/</a><a href="/login/sign_up">Sign Up</a>
+    </header>
     <main>
         {% for item in items %}
         <h2>{{  item.title }}</h2>
-        <p>{{ item.name }}</p>
+        <p>{{ item.year }}</p>
+        <p>{{ item.desc }}</p>
         {% endfor %}
     </main>
+    <footer>
+        {{ title }} - {{ year }}.
+    </footer>
     </body>
 </html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search - {{ site }}</title>
+</head>
+<body>
+    <header>
+        <a href="/">Main page</a>
+        <a href="/login/sign_in">login/</a><a href="/login/sign_up">Sign Up</a>
+    </header>
+    <form>
+        <label for="search">Search</label>
+        <input type="text" id="search" name="search" placeholder="Enter your search here">
+        <button type="submit">Submit</button>
+    </form>
+    <div>
+        {% if item %}
+        <a href="/movies/movie/{{ item.id }}">{{ item.title }}</a>
+        {% else %}
+        <p>Nothing found</p>
+        {% endif %}
+    </div>
+</body>
+</html>

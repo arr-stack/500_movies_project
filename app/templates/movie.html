@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ movie.title }} - {{ site }}</title>
+</head>
+<body>
+    <header>
+        <a href="/">Main page</a>
+        <a href="/login/sign_in">login/</a><a href="/login/sign_up">Sign Up</a>
+    </header>
+    <div>
+        <h2>Title:{{ movie.title }}</h2>
+        <h4>Original title:{{ movie.original_title }}</h4>
+        <p>Year:{{ movie.year }}</p>
+        <p>Description:{{ movie.desc }}</p>
+    </div>
+
+</body>
+</html>
