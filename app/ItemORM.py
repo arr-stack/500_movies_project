@@ -2,8 +2,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase, sessionmaker, Mapped, mapped_column
 from dependencies import password
 
-# engine = create_engine(f'postgresql+psycopg2://postgres:{password}@localhost:5432/movies_500')
-engine = create_engine('sqlite:///500database.db')
+engine = create_engine(f'postgresql+psycopg2://postgres:{password}@localhost:5432/movies_500')
+# engine = create_engine('sqlite:///500database.db')
 class Base(DeclarativeBase):
     pass
 
