@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}500 movies - {{ user_info.username }}{% endblock %}
+
+{% block content %}
+<div>
+    Username: {{ user_info.username }}
+    Email: {{ user_info.email }}
+</div>
+{% endblock %}

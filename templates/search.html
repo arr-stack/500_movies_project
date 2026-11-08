@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}500 movies - search{% endblock %}
+{% block content %}
+    <form>
+        <label for="search">Search</label>
+        <input type="text" id="search" name="search" placeholder="Enter your search here">
+        <button type="submit">Submit</button>
+    </form>
+    <div>
+        {% if item %}
+        <a href="/movies/movie/{{ item.id }}">{{ item.title }}</a>
+        {% else %}
+        <p>Nothing found</p>
+        {% endif %}
+    </div>
+{% endblock %}
