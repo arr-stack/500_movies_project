@@ -1,22 +1,41 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Movies</title>
-</head>
-<body>
-    <header>
-        <a href="/">Main page</a>
-        <a href="/login/sign_in">login/</a><a href="/login/sign_up">Sign Up</a>
-    </header>
-    <div>
-        {% for movie in data %}
-        <h2>Title:{{ movie.title }}</h2>
-        <h4>Original title:{{ movie.original_title }}</h4>
-        <p>Year:{{ movie.year }}</p>
-        <p>Description:{{ movie.desc }}</p>
+{% extends "base.html" %}
+{% block title %}500 movies - {{ movie.title }}{% endblock %}
 
-        {% endfor %}
-    </div>
-</body>
-</html>
+{% block content %}
+<div>
+    <h2>Title:{{ movie.title }}</h2>
+    <h4>Original title:{{ movie.original_title }}</h4>
+    <p>Year:{{ movie.year }}</p>
+    <p>Description:{{ movie.desc }}</p>
+</div>
+<div>
+    <form action="/movies/movie/reviews/create" method="post">
+        <input type="hidden" name="movie_id" value="{{ movie.id }}">
+        <label for="review_title">Title</label>
+        <input id="review_title" name="review_title">
+        <label for="review_body">Text</label>
+        <input id="review_body" name="review_body">
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+<div>
+    <h1>Reviews:</h1>
+    {% if reviews %}
+    {% for review in reviews %}
+    <h2>{{ review.review_title }}</h2>
+    <h3>User: {{ review.username }}</h3>
+    <p>{{ review.review_body }}</p>
+    {% if user and user.id == review.user_id or user and (user.role == 'admin' or user.role == 'moderator') %}
+    <form action="/reviews/delete" method="post">
+        <input type="hidden" name="movie_id" value="{{ movie.id }}">
+        <input type="hidden" name="review_id" value="{{ review.id }}">
+        <button type="submit">Delete Review</button>
+    </form>
+    {% endif %}
+    {% endfor %}
+    {% else %}
+    <h2>No reviews yet</h2>
+    {% endif %}
+</div>
+{% endblock %}

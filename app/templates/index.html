@@ -1,25 +1,23 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>{{ title }}</title>
-        <meta charset="UTF-8">
-        <meta>
-        <link>
-    </head>
-    <body>
-    <header>
-        <a href="/">Main page</a>
-        <a href="/login/sign_in">login/</a><a href="/login/sign_up">Sign Up</a>
-    </header>
-    <main>
-        {% for item in items %}
-        <h2>{{  item.title }}</h2>
-        <p>{{ item.year }}</p>
-        <p>{{ item.desc }}</p>
-        {% endfor %}
-    </main>
-    <footer>
-        {{ title }} - {{ year }}.
-    </footer>
-    </body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    {% for item in items %}
+    <h2><a href="/movies/movie/{{ item.id }}">{{ item.title }}</a></h2>
+    <p><b>Year:</b> {{ item.year }}</p>
+    <p>{{ item.desc }}</p>
+    <hr>
+{% endfor %}
+<nav style="margin-top: 20px; font-family: sans-serif;">
+    {% if page > 1 %}
+    <a href="?page={{ page - 1 }}">&laquo; Назад</a>
+    {% endif %}
+
+    <span style="margin: 0 15px;">Страница {{ page }} из {{ total_pages }}</span>
+
+    {% if page < total_pages %}
+    <a href="?page={{ page + 1 }}">Вперед &raquo;</a>
+    {% endif %}
+</nav>
+</div>
+{% endblock %}

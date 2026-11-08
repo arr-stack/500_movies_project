@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign up</title>
+    <link href="{{ url_for('static', path='/style.css') }}" rel="stylesheet">
 </head>
 <body>
     <header>
         <a href="/">Main page</a>
     </header>
-    <form method="POST">
+    <form action='/login/sign_up' method="post">
         <label for="email">Email:</label>
         <input type="text" id="email" name="email">
         <label for="username">Username:</label>

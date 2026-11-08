@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ user_info.username }} - 500 movies</title>
-</head>
-<body>
-<header>
-        <a href="/">Main page</a>
-    </header>
-    <div>
-        Username: {{ user_info.username }}
-        Email: {{ user_info.email }}
-    </div>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}500 movies - {{ user_info.username }}{% endblock %}
+
+{% block content %}
+<div>
+    Username: {{ user_info.username }}
+    Email: {{ user_info.email }}
+</div>
+{% endblock %}
